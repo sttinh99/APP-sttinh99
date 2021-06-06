@@ -16,7 +16,7 @@ function ResetPassword() {
                 return alert("password confirmation failed");
             }
             if (!isReset) return alert("Error :)))")
-            const res = await axios.post(`/user/reset/${accesstoken.id}`, {
+            const res = await axios.post(`https://api-kltn.herokuapp.com/user/reset/${accesstoken.id}`, {
                 password: password
             })
             localStorage.removeItem('isReset')

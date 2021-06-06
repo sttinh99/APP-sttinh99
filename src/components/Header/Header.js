@@ -49,7 +49,7 @@ function Header() {
     }
     // const x = history.filter(item => item.status === false)
     const logoutUser = async () => {
-        await axios.get('/user/logout');
+        await axios.get('https://api-kltn.herokuapp.com/user/logout');
         localStorage.removeItem('firstLogin')
         window.location.href = '/login'
     }

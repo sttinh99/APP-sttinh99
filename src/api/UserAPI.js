@@ -20,12 +20,12 @@ function UserAPI(token) {
         if (token) {
             const getUser = async () => {
                 try {
-                    const res = await axios.get('/user/infor', {
+                    const res = await axios.get('https://api-kltn.herokuapp.com/user/infor', {
                         headers: { Authorization: token }
                     });
                     //console.log(res.data.user.role);
                     if (res.data.user.isBlock === true) {
-                        window.location.href = '/login'
+                        window.location.href = 'https://api-kltn.herokuapp.com/login'
                         return alert("This account was blocked")
                     }
                     setIsLogged(true);
@@ -64,7 +64,7 @@ function UserAPI(token) {
                 prices: product.prices,
                 images: product.images.url
             }])
-            await axios.post('/user/addcart', {
+            await axios.post('https://api-kltn.herokuapp.com/user/addcart', {
                 cart: [...cart,
                 {
                     _id: product._id,
@@ -89,7 +89,7 @@ function UserAPI(token) {
             })
             // console.log(cart);
             setCart(cart);
-            await axios.post('/user/addcart', {
+            await axios.post('https://api-kltn.herokuapp.com/user/addcart', {
                 cart: cart
             }, { headers: { Authorization: token } })
             return alert("added to cart");
@@ -103,14 +103,14 @@ function UserAPI(token) {
             const getHistory = async () => {
                 // console.log(isAdmin);
                 if (isAdmin) {
-                    const res = await axios.get('/checkout', {
+                    const res = await axios.get('https://api-kltn.herokuapp.com/checkout', {
                         headers: { Authorization: token }
                     })
                     // console.log(res.data.checkouts);
                     setHistory((res.data.checkouts).slice(start, end))
                 }
                 else {
-                    const res = await axios.get('/user/history', {
+                    const res = await axios.get('https://api-kltn.herokuapp.com/user/history', {
                         headers: { Authorization: token }
                     })
                     setHistory((res.data).slice(start, end))

@@ -6,7 +6,7 @@ function RenderDiscount({ discounts, token, callback, setCallback, socket }) {
     const removeDiscount = async (id) => {
         try {
             if (window.confirm("You are sure delete this discount")) {
-                const res = await axios.delete(`/discounts/delete/${id}`, {
+                const res = await axios.delete(`https://api-kltn.herokuapp.com/discounts/delete/${id}`, {
                     headers: { Authorization: token }
                 })
                 alert(res.data.msg);

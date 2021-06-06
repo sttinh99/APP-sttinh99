@@ -10,7 +10,7 @@ function ForgotPassword() {
     const forgotSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post('/user/forget', { email });
+            const res = await axios.post('https://api-kltn.herokuapp.com/user/forget', { email });
             localStorage.setItem('isReset', true)
             return alert(res.data.msg)
         } catch (error) {

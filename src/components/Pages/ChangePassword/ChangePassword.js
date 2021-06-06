@@ -26,14 +26,14 @@ function ChangePassword({ user }) {
         setConfirmPassword(e.target.value)
     }
     const logoutUser = async () => {
-        await axios.get('/user/logout');
+        await axios.get('https://api-kltn.herokuapp.com/user/logout');
         localStorage.removeItem('firstLogin')
         window.location.href = '/login'
     }
     const changePasswordSubmit = async (e) => {
         e.preventDefault()
         try {
-            const res = await axios.post(`/user/changepassword/${user._id}`, { password: password, newPassword: newPassword, confirmPassword: confirmPassword },
+            const res = await axios.post(`https://api-kltn.herokuapp.com/user/changepassword/${user._id}`, { password: password, newPassword: newPassword, confirmPassword: confirmPassword },
                 {
                     headers: { Authorization: token }
                 }

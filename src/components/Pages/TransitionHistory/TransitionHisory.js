@@ -33,7 +33,7 @@ function TransitionHisory() {
     const checkOrder = async (item) => {
         try {
             console.log(item._id);
-            await axios.post(`/checkout/${item._id}`, { status: true }, {
+            await axios.post(`https://api-kltn.herokuapp.com/checkout/${item._id}`, { status: true }, {
                 headers: { Authorization: token }
             })
             setCallback(!callback)
@@ -46,7 +46,7 @@ function TransitionHisory() {
             if (!item.status) {
                 console.log(item);
                 try {
-                    await axios.delete(`/checkout/delete/${item._id}`, {
+                    await axios.delete(`https://api-kltn.herokuapp.com/checkout/delete/${item._id}`, {
                         headers: { Authorization: token }
                     })
 

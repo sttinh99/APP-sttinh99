@@ -5,7 +5,7 @@ import logo from "../../images/logo.svg";
 import { Link } from 'react-router-dom';
 export default function Dasboard() {
     const logoutUser = async () => {
-        await axios.get('/user/logout');
+        await axios.get('https://api-kltn.herokuapp.com/user/logout');
         localStorage.removeItem('firstLogin')
         window.location.href = '/login'
     }

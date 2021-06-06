@@ -14,7 +14,7 @@ function Register() {
     const registerSubmit = async (e) => {
         e.preventDefault()
         try {
-            await axios.post('/user/register', { ...user })
+            await axios.post('https://api-kltn.herokuapp.com/user/register', { ...user })
 
             localStorage.setItem('firstLogin', true)
 
@@ -26,8 +26,8 @@ function Register() {
         }
     }
     return (
-        <div className='login-page' style={{top:"50px"}}>
-            <form onSubmit={registerSubmit}style={{height:"600px"}}>
+        <div className='login-page' style={{ top: "50px" }}>
+            <form onSubmit={registerSubmit} style={{ height: "600px" }}>
                 <h2 style={{ "textAlign": "center" }}>Register</h2>
                 <label name="name" htmlFor="email">Name:</label>
                 <input id="name" type='text' name='name' required placeholder='Enter Your Name...' value={user.name} onChange={onChangeInput} />

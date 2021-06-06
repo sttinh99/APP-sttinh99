@@ -76,7 +76,7 @@ function Address() {
             (!district || district === "Select a District") || (!ward || ward === "Select a Ward"))
             return alert("Please fill out the form completely")
         try {
-            await axios.post(`/user/address`, { ...address }, {
+            await axios.post(`https://api-kltn.herokuapp.com/user/address`, { ...address }, {
                 headers: { Authorization: token }
             })
             setDistricts([]);

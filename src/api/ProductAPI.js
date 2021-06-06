@@ -18,7 +18,7 @@ function ProductAPI() {
         const start = (page - 1) * perPage;
         const end = (page * perPage);
         const getProducts = async () => {
-            const res = await axios.get(`/products?${category}&${sort}&title[regex]=${search}`);
+            const res = await axios.get(`https://api-kltn.herokuapp.com/products?${category}&${sort}&title[regex]=${search}`);
             setProducts((res.data.products).slice(start, end))
             setResult(res.data.result)
         }
@@ -26,19 +26,19 @@ function ProductAPI() {
     }, [callback, category, search, sort, page, callback])
     useEffect(() => {
         const getAllProducts = async () => {
-            const res = await axios.get('/products')
+            const res = await axios.get('https://api-kltn.herokuapp.com/products')
             setAllproducts((res.data.products))
         }
         const getLaptops = async () => {
-            const res = await axios.get(`/products?category=laptop&sort=-sold`)
+            const res = await axios.get(`https://api-kltn.herokuapp.com/products?category=laptop&sort=-sold`)
             setHotLaptop(takeProductsHot(res.data.products))
         }
         const getMouses = async () => {
-            const res = await axios.get(`/products?category=mouse&sort=-sold`)
+            const res = await axios.get(`https://api-kltn.herokuapp.com/products?category=mouse&sort=-sold`)
             setHotMouses(takeProductsHot(res.data.products))
         }
         const getHeadphone = async () => {
-            const res = await axios.get(`/products?category=headphone&sort=-sold`)
+            const res = await axios.get(`https://api-kltn.herokuapp.com/products?category=headphone&sort=-sold`)
             setHotHeadphone(takeProductsHot(res.data.products))
         }
         getLaptops();

@@ -20,7 +20,7 @@ function Categories() {
         e.preventDefault();
         if (onEdit) {
             try {
-                const res = await axios.post(`/category/update/${id}`, { name: category }, {
+                const res = await axios.post(`https://api-kltn.herokuapp.com/category/update/${id}`, { name: category }, {
                     headers: { Authorization: token }
                 })
                 alert(res.data.msg)
@@ -30,7 +30,7 @@ function Categories() {
         }
         else {
             try {
-                const res = await axios.post('/category/create', { name: category }, {
+                const res = await axios.post('https://api-kltn.herokuapp.com/category/create', { name: category }, {
                     headers: { Authorization: token }
                 })
                 alert(res.data.msg)
@@ -45,7 +45,7 @@ function Categories() {
     const deleteCategory = async id => {
         console.log('llll');
         try {
-            const res = await axios.delete(`/category/delete/${id}`, {
+            const res = await axios.delete(`https://api-kltn.herokuapp.com/category/delete/${id}`, {
                 headers: { Authorization: token }
             })
             setCallback(!callback)

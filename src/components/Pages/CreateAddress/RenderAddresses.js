@@ -18,7 +18,7 @@ function RenderAddresses({ address, index, changeAddress }) {
     }
     const refreshAddress = async (addresses) => {
         try {
-            await axios.post('/user/remove', { addresses },
+            await axios.post('https://api-kltn.herokuapp.com/user/remove', { addresses },
                 {
                     headers: { Authorization: token }
                 })
