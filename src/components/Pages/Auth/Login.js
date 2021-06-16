@@ -15,9 +15,10 @@ function Login() {
     const loginSubmit = async (e) => {
         e.preventDefault()
         try {
+            console.log(user);
             await axios.post('https://api-kltn.herokuapp.com/user/login', { ...user })
             localStorage.setItem('firstLogin', true)
-            window.location.href = '/'
+            //window.location.href = '/'
         } catch (error) {
             console.log(error);
             alert(error.response.data.msg)
