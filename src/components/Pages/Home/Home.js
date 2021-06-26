@@ -46,9 +46,9 @@ function Home() {
                         <ul>
                             <li style={{ "background": "rgb(243 238 238)" }}>Product Portfolio</li>
                             {
-                                // categories.map((category, index) => {
-                                //     return <li key={index}><Link to={`/products/category/${category._id}`}><img src={laptop} alt="..." /> {category.name}</Link></li>
-                                // })
+                                categories.map((category, index) => {
+                                    return <li key={index}><Link to={`/products/category/${category._id}`}><img src={laptop} alt="..." /> {category.name}</Link></li>
+                                })
                             }
                         </ul>
                     </div>
@@ -60,8 +60,7 @@ function Home() {
                     <div className="hot-headphone"><RenderHome items={hotHeadphones.slice(0, 5)} /></div>
                 </div>
             </div> :
-                // <AdminHome />
-                <p>H</p>
+                <AdminHome />
             }
         </>
     );
