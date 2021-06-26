@@ -6,7 +6,7 @@ function DiscountAPI() {
     const [callback, setCallback] = useState(false);
     useEffect(() => {
         const getDiscounts = async () => {
-            const res = await axios.get(`https://api-kltn.herokuapp.com/discounts`);
+            const res = await axios.get(`/discounts`);
             setDiscounts(res.data.allDiscounts)
             //setResult(res.data.result)
         }

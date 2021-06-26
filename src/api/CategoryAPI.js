@@ -9,7 +9,7 @@ function CategoryAPI() {
     const [result, setResult] = useState(0)
     useEffect(() => {
         const getCategories = async () => {
-            const res = await axios.get(`https://api-kltn.herokuapp.com/category?&name[regex]=${search}`);
+            const res = await axios.get(`/category?&name[regex]=${search}`);
             setCategories(res.data.categories)
             setResult(res.data.result)
         }

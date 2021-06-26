@@ -14,7 +14,7 @@ function AdminUser() {
     const handleOnChangeAccount = async (user) => {
         if (user.isBlock === true) {
             if (window.confirm("Are you sure you want to open this account")) {
-                await axios.post(`https://api-kltn.herokuapp.com/user/block/${user._id}`, { isBlock: !user.isBlock }, {
+                await axios.post(`/user/block/${user._id}`, { isBlock: !user.isBlock }, {
                     headers: { Authorization: token }
                 })
                 setCallback(!callback);
@@ -24,7 +24,7 @@ function AdminUser() {
         if (user.isBlock === false) {
             if (window.confirm("Are you sure you want to delete this account")) {
 
-                await axios.post(`https://api-kltn.herokuapp.com/user/block/${user._id}`, { isBlock: !user.isBlock }, {
+                await axios.post(`/user/block/${user._id}`, { isBlock: !user.isBlock }, {
                     headers: { Authorization: token }
                 })
                 localStorage.removeItem('firstLogin')
@@ -38,7 +38,7 @@ function AdminUser() {
         if (token) {
             const getAllUser = async () => {
                 try {
-                    const res = await axios.get('https://api-kltn.herokuapp.com/user/users', {
+                    const res = await axios.get('/user/users', {
                         headers: { Authorization: token }
                     });
                     //console.log(res.data.users);

@@ -30,7 +30,7 @@ function Discount() {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`https://api-kltn.herokuapp.com/discounts/create`, { discount, category, date }, {
+            const res = await axios.post(`/discounts/create`, { discount, category, date }, {
                 headers: { Authorization: token }
             })
             alert(res.data.msg)

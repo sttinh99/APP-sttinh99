@@ -98,7 +98,7 @@ function CreateProduct(props) {
             if (!file) return alert('file not exists')
             let formData = new FormData()
             formData.append('file', file);
-            const res = await axios.post('https://api-kltn.herokuapp.com/images/upload', formData, {
+            const res = await axios.post('/images/upload', formData, {
                 headers: { 'content-type': 'multipart/form-data', Authorization: token }
             })
             // console.log(res, 'res');
@@ -110,7 +110,7 @@ function CreateProduct(props) {
     const handleDelete = async () => {
         try {
             if (!token) return alert('not upload')
-            await axios.post('https://api-kltn.herokuapp.com/images/delete', { public_id: images.public_id }, {
+            await axios.post('/images/delete', { public_id: images.public_id }, {
                 headers: { Authorization: token }
             })
             await setImages(false);
@@ -158,12 +158,12 @@ function CreateProduct(props) {
             if (!isAdmin) return alert('you are not admin')
             if (!images) return alert('no images upload')
             if (onEdit) {
-                await axios.post(`https://api-kltn.herokuapp.com/products/update/${param.id}`, { ...product, images, title: inforTT }, {
+                await axios.post(`/products/update/${param.id}`, { ...product, images, title: inforTT }, {
                     headers: { Authorization: token }
                 })
             }
             else {
-                await axios.post('https://api-kltn.herokuapp.com/products/create', { ...product, images, title: inforTT }, {
+                await axios.post('/products/create', { ...product, images, title: inforTT }, {
                     headers: { Authorization: token }
                 })
             }

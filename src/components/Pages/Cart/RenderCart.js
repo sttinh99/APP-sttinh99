@@ -11,7 +11,7 @@ function RenderCart({ item }) {
     const [token] = state.token
     const addToCart = async (cart) => {
         try {
-            await axios.post('https://api-kltn.herokuapp.com/user/addcart', { cart },
+            await axios.post('/user/addcart', { cart },
                 {
                     headers: { Authorization: token }
                 })

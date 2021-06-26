@@ -32,7 +32,7 @@ function Home() {
         if (discounts) {
             discounts.map(async (item) => {
                 if ((new Date(item.to) - new Date()) <= 0) {
-                    await axios.delete(`https://api-kltn.herokuapp.com/discounts/delete/${item._id}`)
+                    await axios.delete(`/discounts/delete/${item._id}`)
                 }
             })
         }
