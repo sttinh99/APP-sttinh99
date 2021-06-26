@@ -26,7 +26,6 @@ function Home() {
     const [hotHeadphones] = state.ProductAPI.hotHeadphones;
     const [categories] = state.CategoryAPI.categories
     const [discounts] = state.DiscountAPI.discounts
-    console.log(discounts);
     useEffect(() => {
         console.log(discounts);
         if (discounts) {
