@@ -10,7 +10,7 @@ function AdminHome() {
     const [history] = state.UserAPI.history
     const checked = history.filter(item => item.status === true)
 
-    const [date, setDate] = useState(Date())
+    const [date] = useState(Date())
     let data = []
     const gidoll = checked.filter((item) => {
         if (new Date(item.updatedAt).getFullYear() === new Date(date).getFullYear() && new Date(item.updatedAt).getMonth() === new Date(date).getMonth())
